@@ -1,0 +1,75 @@
+﻿@model MVCkursach.Models.Requests
+@{
+    ViewBag.Title = "Создание";
+}
+
+<h2>Создайте заявку на оформление документов</h2>
+<p>Выберите тип документов</p>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <style type="text/css">
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+    <fieldset>
+        <legend>Выберите тип документа(паспорт):</legend>
+        <div class="editor-field">
+
+            @Html.DropDownListFor(model => model.Doc, new List<SelectListItem>
+               {
+                        new SelectListItem() {Text = "Паспорт", Value="Pasport"},
+                        new SelectListItem() {Text = "Загран паспорт", Value="ZPasport"},
+               }
+               )
+
+        </div>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+        @Html.ActionLink("Просмотреть информацию", "Index", "Vid")
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        <div class="hidden">
+            <div class="editor-label">
+                @Html.LabelFor(m => m.UserId_)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.UserId_)
+                @Html.ValidationMessageFor(m => m.UserId_)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClientID)
+        </div>
+        <div>
+            class="editor-field">
+            @Html.EditorFor(model => model.ClientID)
+        </div>
+
+            <div class="hidden">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Doc)
+                </div>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.State)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.State)
+                    @Html.ValidationMessageFor(model => model.State)
+                </div>
+            </div>
+
+
+    </fieldset>
+
+
+}
+

@@ -1,0 +1,21 @@
+﻿@model MVCkursach.Models.VidDocs
+@{
+    ViewBag.Title = "Сведения";
+}
+
+    <h1>Просмотр документов</h1>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+        </tr>
+
+    </table>

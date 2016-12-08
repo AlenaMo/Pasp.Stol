@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Greeting</h1>
+            </hgroup>
+            <p>
+                Навигация в каталоге организована таким образом, чтобы вы могли быстро найти нужное ведомство и его контактную информацию, 
+                ознакомиться с предоставляемыми услугами или перейти на официальный сайт.
+            </p>
+        </div>
+    </section>
+}
+<h3>На нашем портале вы сможете:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Создать заявку</h5>
+       Для того чтобы оформить паспорт перейдите по ссылке:
+        @Html.ActionLink("Оформить", "IndexP", "Doc") 
+    </li>
+    <li class="two">
+        <h5>Посмотреть ваши заявки</h5>
+        Для того чтобы просмотреть ваши заявки перейдите по ссылке:
+        @Html.ActionLink("Просмотр", "IndexP", "Doc")
+    </li>
+
+@if(Roles.IsUserInRole("Sotrudnik")){
+    <li class="three">
+        <h5>Заявки пользователей</h5>
+       @Html.ActionLink("Заявки пользователей", "Index", "..")    
+    </li>
+    <li class="Four">
+        <h5>Данные пользователей</h5>
+        @Html.ActionLink("Данные пользователей", "Index", "..")
+    </li>
+
+    <li class="Four">
+        <h5>Данные пользователей</h5>
+        @Html.ActionLink("Просмотреть информацию о документах", "Index", "Vid")
+    </li>
+}
+</ol>
